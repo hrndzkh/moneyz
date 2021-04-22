@@ -1,0 +1,20 @@
+CREATE DATABASE moneyz;
+
+USE moneyz;
+
+CREATE TABLE tblUser(
+    Id INT NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Created_at DATETIME NOT NULL,
+    Updated_at DATETIME NOT NULL,
+    PRIMARY KEY(Id)
+);
+
+CREATE TABLE tblMoneyz(
+    Id INT NOT NULL AUTO_INCREMENT,
+    User_id INT NOT NULL,
+    Moneyz INT NOT NULL,
+    PRIMARY KEY(Id),
+    FOREIGN KEY(User_id) REFERENCES tblUser(Id)
+);
